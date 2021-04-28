@@ -42,7 +42,6 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
     }
 
 
-
     @Override
     public String createUser(User user) {
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
@@ -51,7 +50,7 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
         User newUser = userRepository.save(user);
         return (newUser.getUsername());
     }
-    
+
 
     @Override
     public void deleteUser(String username) {
