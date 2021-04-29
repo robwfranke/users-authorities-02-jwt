@@ -44,6 +44,7 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
 
     @Override
     public String createUser(User user) {
+
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         user.setApikey(randomString);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -61,7 +62,7 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
     public void updateUser(String username, User newUser) {
         if (!userRepository.existsById(username)) throw new RecordNotFoundException();
         User user = userRepository.findById(username).get();
-        user.setPassword(newUser.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
