@@ -62,9 +62,24 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
     public void updateUser(String username, User newUser) {
         if (!userRepository.existsById(username)) throw new RecordNotFoundException();
         User user = userRepository.findById(username).get();
+//        user.setPassword(newUser.getPassword());
+        user.setEmail(newUser.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
+
+
+
+
+
+
+
+    @Override
+    public Collection<User> getAllAuthorities() {
+        return userRepository.findAll();
+    }
+
+
 
     @Override
     public Set<Authority> getAuthorities(String username) {

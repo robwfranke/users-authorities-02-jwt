@@ -24,19 +24,16 @@ public class UserController {
     private UserService userService;
 
 
-//    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "")
     public ResponseEntity<Object> getUsers() {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
-//    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{username}")
     public ResponseEntity<Object> getUser(@PathVariable("username") String username) {
         return ResponseEntity.ok().body(userService.getUser(username));
     }
 
-//    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "")
     public ResponseEntity<Object> createKlant(@RequestBody User user) {
         String newUsername = userService.createUser(user);
@@ -45,27 +42,32 @@ public class UserController {
 
         return ResponseEntity.created(location).build();
     }
-//    @CrossOrigin(origins = "*")
+
     @PutMapping(value = "/{username}")
     public ResponseEntity<Object> updateKlant(@PathVariable("username") String username, @RequestBody User user) {
         userService.updateUser(username, user);
         return ResponseEntity.noContent().build();
     }
 
-//    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value = "/{username}")
     public ResponseEntity<Object> deleteKlant(@PathVariable("username") String username) {
         userService.deleteUser(username);
         return ResponseEntity.noContent().build();
     }
 
-//    @CrossOrigin(origins = "http://localhost:3000")
+
+    @GetMapping(value = "/authorities")
+    public ResponseEntity<Object> getAllAuthorities() {
+        return ResponseEntity.ok().body(userService.getAllAuthorities());
+    }
+
+
+
     @GetMapping(value = "/{username}/authorities")
     public ResponseEntity<Object> getUserAuthorities(@PathVariable("username") String username) {
         return ResponseEntity.ok().body(userService.getAuthorities(username));
     }
 
-//    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/{username}/authorities")
     public ResponseEntity<Object> addUserAuthority(@PathVariable("username") String username, @RequestBody Map<String, Object> fields) {
         try {
@@ -76,7 +78,6 @@ public class UserController {
             throw new BadRequestException();
         }
     }
-//    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value = "/{username}/authorities/{authority}")
     public ResponseEntity<Object> deleteUserAuthority(@PathVariable("username") String username, @PathVariable("authority") String authority) {
         userService.removeAuthority(username, authority);
