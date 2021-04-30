@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="006f30c6-0312-4b99-a7fb-5187c14b423a" name="Default Changelist" comment="Update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/exceptions/UsernameExistsException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/controller/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/controller/ExceptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +68,11 @@
       <recent name="nl.gettoworktogether.security_with_jwt.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="nl.gettoworktogether.security_with_jwt.exceptions" />
       <recent name="nl.gettoworktogether.security_with_jwt.controller" />
       <recent name="nl.gettoworktogether.security_with_jwt" />
       <recent name="nl.gettoworktogether.security_with_jwt.utils" />
       <recent name="nl.gettoworktogether.security_with_jwt.repository" />
-      <recent name="nl.gettoworktogether.security_with_jwt.service" />
     </key>
   </component>
   <component name="RunManager" selected="Application.SecurityMain">
@@ -92,6 +94,17 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="adopt-openjdk-14" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,7 +151,7 @@
       <workItem from="1619593472669" duration="2169000" />
       <workItem from="1619609290356" duration="5235000" />
       <workItem from="1619617807466" duration="4822000" />
-      <workItem from="1619690591665" duration="10203000" />
+      <workItem from="1619690591665" duration="16788000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1611225328261</created>

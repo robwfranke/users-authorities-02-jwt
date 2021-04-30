@@ -2,8 +2,10 @@ package nl.gettoworktogether.security_with_jwt.controller;
 
 import nl.gettoworktogether.security_with_jwt.exceptions.BadRequestException;
 import nl.gettoworktogether.security_with_jwt.exceptions.RecordNotFoundException;
+import nl.gettoworktogether.security_with_jwt.exceptions.UsernameExistsException;
 import nl.gettoworktogether.security_with_jwt.exceptions.UsernameNotFoundException;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,5 +31,15 @@ public class ExceptionController {
     public ResponseEntity<Object> exception(UsernameNotFoundException exception) {
         return ResponseEntity.badRequest().build();
     }
+
+    @ExceptionHandler(value = UsernameExistsException.class)
+    public ResponseEntity<Object> exception(UsernameExistsException exception) {
+        String message=exception.getMessage();
+//        return ResponseEntity.badRequest().build();
+
+        return new ResponseEntity<>(message, HttpStatus.UNAUTHORIZED);
+    }
+
+
 
 }

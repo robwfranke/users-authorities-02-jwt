@@ -1,6 +1,7 @@
 package nl.gettoworktogether.security_with_jwt.service;
 
 import nl.gettoworktogether.security_with_jwt.exceptions.RecordNotFoundException;
+import nl.gettoworktogether.security_with_jwt.exceptions.UsernameExistsException;
 import nl.gettoworktogether.security_with_jwt.exceptions.UsernameNotFoundException;
 import nl.gettoworktogether.security_with_jwt.model.Authority;
 import nl.gettoworktogether.security_with_jwt.model.User;
@@ -44,6 +45,7 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
 
     @Override
     public String createUser(User user) {
+        if (userRepository.existsById(user.getUsername())) throw new UsernameExistsException("User exists!!");
 
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         user.setApikey(randomString);
@@ -51,7 +53,6 @@ public class UserServiceImpl implements nl.gettoworktogether.security_with_jwt.s
         User newUser = userRepository.save(user);
         return (newUser.getUsername());
     }
-
 
     @Override
     public void deleteUser(String username) {
